@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: focus-app
+    runtime: node
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    autoDeploy: true

@@ -1,0 +1,47 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Focus Seguros - Etapa 0</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card" aria-labelledby="screen-title">
+      <p class="eyebrow">Etapa 0</p>
+      <h1 id="screen-title">Carga cartera de seguros (1000 x 20)</h1>
+      <p class="subtitle">Sin autenticación. Carga el Excel de producción de seguros, edítalo y luego descárgalo.</p>
+
+      <div id="dropzone" class="dropzone" role="button" tabindex="0" aria-label="Zona para cargar archivo Excel">
+        <input id="file-input" class="file-input" type="file" accept=".xlsx,.xls,.csv" />
+        <p class="dropzone-title">Arrastra y suelta aquí</p>
+        <p class="dropzone-divider">o</p>
+        <button id="browse-button" type="button" class="button">Explorar archivo</button>
+        <p class="formats">Formatos permitidos: .xlsx, .xls, .csv</p>
+      </div>
+
+      <section class="status" aria-live="polite">
+        <p id="status-text">Aún no seleccionaste ningún archivo.</p>
+        <ul id="file-meta" class="file-meta hidden"></ul>
+      </section>
+
+      <section class="controls">
+        <button id="clear-button" type="button" class="button button-secondary">Limpiar matriz</button>
+        <button id="reset-view-button" type="button" class="button button-secondary">Ir al inicio</button>
+        <button id="download-button" type="button" class="button" disabled>Descargar Excel editado</button>
+      </section>
+
+      <section class="grid-panel">
+        <div id="grid-wrapper" class="grid-wrapper" aria-label="Matriz editable"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

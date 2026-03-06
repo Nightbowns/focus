@@ -1,0 +1,93 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Focus Seguros - Etapa 0</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card" aria-labelledby="screen-title">
+      <header class="brand-bar">
+        <img class="logo" src="assets/logo-focus-seguros.svg" alt="Focus Seguros" />
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Etapa 0</p>
+          <h1 id="screen-title">Sura - Carga inicial de cartera (1000 x 20)</h1>
+          <p class="subtitle">Sin autenticación. Carga Excel/CSV, edita por hoja y descarga el archivo actualizado.</p>
+        </div>
+        <img class="hero-art" src="assets/illustration-shield.svg" alt="Ilustración de protección de seguros" />
+      </section>
+
+      <section class="scope-panel" aria-label="Alcance etapa 0">
+        <p class="scope-title">Alcance confirmado - Etapa 0 (Sura)</p>
+        <div class="scope-grid">
+          <div>
+            <p class="scope-subtitle">Incluye</p>
+            <ul>
+              <li>Carga por arrastrar/soltar o explorar archivo.</li>
+              <li>Soporte de Excel con múltiples hojas y CSV.</li>
+              <li>Edición de matriz normalizada a 1000 filas x 20 columnas por hoja.</li>
+              <li>Descarga de Excel editado con todas las hojas.</li>
+            </ul>
+          </div>
+          <div>
+            <p class="scope-subtitle">Fuera de alcance por ahora</p>
+            <ul>
+              <li>Autenticación y control de acceso.</li>
+              <li>Exportación o integración a Word.</li>
+              <li>Reglas de negocio/filtros avanzados de Sura.</li>
+              <li>Persistencia en base de datos.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div id="dropzone" class="dropzone" role="button" tabindex="0" aria-label="Zona para cargar archivo Excel">
+        <input id="file-input" class="file-input" type="file" accept=".xlsx,.xls,.csv" />
+        <img class="upload-icon" src="assets/icon-upload.svg" alt="" aria-hidden="true" />
+        <p class="dropzone-title">Arrastra y suelta aquí</p>
+        <p class="dropzone-divider">o</p>
+        <button id="browse-button" type="button" class="button">Explorar archivo</button>
+        <p class="formats">Formatos permitidos: .xlsx, .xls, .csv</p>
+      </div>
+
+      <section class="status" aria-live="polite">
+        <p id="status-text">Aún no seleccionaste ningún archivo.</p>
+        <ul id="file-meta" class="file-meta hidden"></ul>
+      </section>
+
+      <section class="controls">
+        <label class="sheet-group" for="sheet-select">
+          Hoja activa
+          <select id="sheet-select" class="sheet-select" disabled>
+            <option value="">Sin hoja</option>
+          </select>
+        </label>
+        <button id="clear-button" type="button" class="button button-secondary">Limpiar matriz</button>
+        <button id="reset-view-button" type="button" class="button button-secondary">Ir al inicio</button>
+        <button id="download-button" type="button" class="button" disabled>Descargar Excel editado</button>
+        <button id="download-word-sheet-button" type="button" class="button button-secondary" disabled>Word hoja activa</button>
+        <label class="sheet-group" for="word-row-input">
+          Fila para Word
+          <input id="word-row-input" class="sheet-select" type="number" min="1" max="1000" value="1" />
+        </label>
+        <button id="download-word-row-button" type="button" class="button button-secondary" disabled>Word fila</button>
+      </section>
+
+      <section class="grid-panel">
+        <div id="grid-wrapper" class="grid-wrapper" aria-label="Matriz editable"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

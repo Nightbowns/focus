@@ -1,0 +1,19 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: focus-app
+    restart: unless-stopped
+    expose:
+      - "4173"
+    ports:
+      - "4173:4173"
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: focus-cloudflared
+    restart: unless-stopped
+    depends_on:
+      - app
+    command: tunnel --no-autoupdate --url http://app:4173

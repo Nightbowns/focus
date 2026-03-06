@@ -1,0 +1,9 @@
+{
+  "name": "focus-app",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Focus static app server",
+  "scripts": {
+    "start": "node local-server.js ."
+  }
+}

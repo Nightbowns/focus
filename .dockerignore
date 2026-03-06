@@ -1,0 +1,9 @@
+.git
+.gitignore
+cloudflared.exe
+*.log
+*.err.log
+node_modules
+npm-debug.log*
+Dockerfile*
+docker-compose*.yml
