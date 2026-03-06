@@ -1,6 +1,7 @@
 services:
   - type: web
     name: focus-app
+    rootDir: .
     runtime: node
     plan: free
     buildCommand: npm install --omit=dev
